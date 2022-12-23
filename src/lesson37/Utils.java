@@ -2,8 +2,8 @@ package lesson37;
 
 import java.util.Arrays;
 
-public class Utils {
-    public static Account[] findAccountByPerson(Account[] accounts, Person person) {
+class Utils {
+    static Account[] findAccountByPerson(Account[] accounts, Person person) {
         Account[] resAcc = new Account[accounts.length];
         for (int i = 0; i < resAcc.length; i++) {
             if (accounts[i].getClient().equals(person)) {
@@ -27,7 +27,7 @@ public class Utils {
         return finalRes;
     }
 
-    public static String[] findIBANsByUser(Account[] accounts, Person person) {
+    static String[] findIBANsByUser(Account[] accounts, Person person) {
         Account[] filteredAcc = findAccountByPerson(accounts, person);
         String[] strOfIBANs = new String[filteredAcc.length];
         for (int i = 0; i < filteredAcc.length; i++) {
@@ -37,7 +37,7 @@ public class Utils {
         return strOfIBANs;
     }
 
-    public static Account[] copySortedByBalance(Account[] accounts) {
+    static Account[] copySortedByBalance(Account[] accounts) {
         Account[] copiedAccounts = Arrays.copyOf(accounts, accounts.length);
         boolean swapped;
 
@@ -56,7 +56,7 @@ public class Utils {
         return copiedAccounts;
     }
 
-    public static Account[] copySortedByPersonAge(Account[] accounts) {
+    static Account[] copySortedByPersonAge(Account[] accounts) {
         Account[] copiedAccounts = Arrays.copyOf(accounts, accounts.length);
         boolean swapped;
 

@@ -1,7 +1,7 @@
 package lesson37;
 
 public class Misc {
-    public static Account[] createAcc(String[][] personData, String[][] accData) {
+    static Account[] createAcc(String[][] personData, String[][] accData) {
         Account[] accounts;
         accounts = new Account[accData.length];
 
@@ -18,11 +18,11 @@ public class Misc {
             );
         }
         return accounts;
-    };
+    }
 
-    public static void printAccounts(Account[] accounts) {
+    static void printAccounts(Account[] accounts) {
         for (int i = 0; i < accounts.length; i++) {
             System.out.println((i + 1) + ".\t" + accounts[i]);
-        };
+        }
     }
 }

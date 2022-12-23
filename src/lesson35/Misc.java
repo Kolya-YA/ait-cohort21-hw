@@ -1,7 +1,7 @@
 package lesson35;
 
 public class Misc {
-    public static Account[] findAccountByPerson(Account[] accounts, Person person) {
+    static Account[] findAccountByPerson(Account[] accounts, Person person) {
         Account[] resAcc = new Account[accounts.length];
         for (int i = 0; i < resAcc.length; i++) {
             if (accounts[i].getClient().equals(person)) {
@@ -25,7 +25,7 @@ public class Misc {
         return finalRes;
     }
 
-    public static String[] findIBANsByUser(Account[] accounts, Person person) {
+    static String[] findIBANsByUser(Account[] accounts, Person person) {
         Account[] filteredAcc = findAccountByPerson(accounts,person);
         String[] strOfIBANs = new String[filteredAcc.length];
         for (int i = 0; i < filteredAcc.length; i++) {
@@ -35,7 +35,7 @@ public class Misc {
         return strOfIBANs;
     }
 
-    public static Account[] createAcc(String[][] personData, String[][] accData) {
+    static Account[] createAcc(String[][] personData, String[][] accData) {
         Account[] accounts;
         accounts = new Account[accData.length];
 
@@ -47,5 +47,11 @@ public class Misc {
                     new Person(personData[personIdx][0], personData[personIdx][1]));
         }
         return accounts;
-    };
+    }
+
+    static void printAccounts(Account[] accounts) {
+        for (int i = 0; i < accounts.length; i++) {
+            System.out.println((i + 1) + ".\t" + accounts[i]);
+        }
+    }
 }
