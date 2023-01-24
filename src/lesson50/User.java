@@ -1,9 +1,9 @@
 package lesson50;
 
-import lesson50.exceptions.wrongAgeException;
-import lesson50.exceptions.wrongEmailException;
-import lesson50.exceptions.wrongInputStringException;
-import lesson50.exceptions.wrongNameException;
+import lesson50.exceptions.WrongAgeException;
+import lesson50.exceptions.WrongEmailException;
+import lesson50.exceptions.WrongInputStringException;
+import lesson50.exceptions.WrongNameException;
 
 public class User {
     private String firstName;
@@ -18,7 +18,7 @@ public class User {
                ", email='" + email + '\'';
     }
 
-    public User(String inputString) throws wrongNameException, wrongAgeException, wrongEmailException, wrongInputStringException {
+    public User(String inputString) throws WrongNameException, WrongAgeException, WrongEmailException, WrongInputStringException {
         String[] inputData = inputDataValidator(inputString.split(";"));
 
         this.firstName = nameValidator(inputData[0]);
@@ -27,21 +27,21 @@ public class User {
         this.email = emailValidator(inputData[3]);
     }
 
-    static String[] inputDataValidator (String[] inputData) throws wrongInputStringException {
+    static String[] inputDataValidator (String[] inputData) throws WrongInputStringException {
         if (inputData.length != 4) {
-            throw new wrongInputStringException(inputData.length);
+            throw new WrongInputStringException(inputData.length);
         }
         return inputData;
     }
 
-    static String nameValidator (String name) throws wrongNameException {
+    static String nameValidator (String name) throws WrongNameException {
         if (name.length() < 1 || name.length() > 128) {
-            throw new wrongNameException(name.length());
+            throw new WrongNameException(name.length());
         }
         return name;
     }
 
-    static int ageValidator (String strAge) throws wrongAgeException {
+    static int ageValidator (String strAge) throws WrongAgeException {
         int age = -1;
 
         try {
@@ -49,19 +49,19 @@ public class User {
         } catch (NumberFormatException e) {}
 
         if (age < 18 || age > 150) {
-            throw new wrongAgeException(age);
+            throw new WrongAgeException(age);
         }
         return age;
     }
 
-    static String emailValidator (String email) throws wrongEmailException {
+    static String emailValidator (String email) throws WrongEmailException {
         if (email.length() < 4 || email.length() > 256) {
-            throw new wrongEmailException(email);
+            throw new WrongEmailException(email);
         }
 
         int symbolAtPosition = email.indexOf('@');
         if (symbolAtPosition == -1 || symbolAtPosition == 0 || symbolAtPosition == email.length() - 1) {
-            throw new wrongEmailException(symbolAtPosition);
+            throw new WrongEmailException(symbolAtPosition);
         }
         return email;
     }
