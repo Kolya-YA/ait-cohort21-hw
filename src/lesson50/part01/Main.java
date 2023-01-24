@@ -1,4 +1,6 @@
-package lesson50;
+package lesson50.part01;
+
+import lesson50.part01.User;
 
 public class Main {
     public static void main(String[] args) {

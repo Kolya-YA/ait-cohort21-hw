@@ -1,4 +1,4 @@
-package lesson50.exceptions;
+package lesson50.part01.exceptions;
 
 public class WrongInputStringException extends Exception {
     public WrongInputStringException(int length) {

@@ -1,4 +1,4 @@
-package lesson50.exceptions;
+package lesson50.part01.exceptions;
 
 public class WrongNameException extends Exception {
     public WrongNameException(int length) {

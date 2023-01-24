@@ -1,9 +1,9 @@
-package lesson50;
+package lesson50.part01;
 
-import lesson50.exceptions.WrongAgeException;
-import lesson50.exceptions.WrongEmailException;
-import lesson50.exceptions.WrongInputStringException;
-import lesson50.exceptions.WrongNameException;
+import lesson50.part01.exceptions.WrongAgeException;
+import lesson50.part01.exceptions.WrongEmailException;
+import lesson50.part01.exceptions.WrongInputStringException;
+import lesson50.part01.exceptions.WrongNameException;
 
 public class User {
     private String firstName;

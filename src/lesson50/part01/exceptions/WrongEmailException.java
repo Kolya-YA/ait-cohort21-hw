@@ -1,4 +1,4 @@
-package lesson50.exceptions;
+package lesson50.part01.exceptions;
 
 public class WrongEmailException extends Exception {
     public WrongEmailException(String email) {
