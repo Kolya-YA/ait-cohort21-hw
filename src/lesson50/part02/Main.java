@@ -8,6 +8,8 @@ import java.util.List;
 public class Main {
 
     public static void main(String[] args) {
+
+        // All validated accounts will be created
         String[] inputAccStrings = {
             "DE1613321892788;Jack Johnson",    // 1. Ok
             "DE1234567890123; ",               // 2. no (empty) name
