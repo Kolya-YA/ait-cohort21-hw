@@ -1,9 +1,7 @@
 package Homeworks.hw61;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.util.Comparator;
-import java.util.Objects;
 
 public class Task {
     private static int counter = 0;
@@ -29,13 +27,27 @@ public class Task {
         return type;
     }
 
-    public void setType(Priority type) {
-        this.type = type;
-    }
-
     @Override
     public String toString() {
         return "{Task #" + num + ", " + title + ", " + type + '}';
+    }
+
+    public static Comparator<Task> getPriorityComparator() {
+        return new Comparator<Task>() {
+            @Override
+            public int compare(Task o1, Task o2) {
+                return Integer.compare(o2.getType().getPVal(), o1.getType().getPVal());
+            }
+        };
+    }
+
+    public static Comparator<Task> getNumComparator() {
+        return new Comparator<Task>() {
+            @Override
+            public int compare(Task o1, Task o2) {
+                return o1.num - o2.num;
+            }
+        };
     }
 }
 
@@ -51,12 +63,5 @@ enum Priority {
 
     public int getPVal() {
         return pVal;
-    }
-}
-
-class TaskComparator implements Comparator<Task> {
-    @Override
-    public int compare(Task o1, Task o2) {
-        return Integer.compare(o2.getType().getPVal(), o1.getType().getPVal());
     }
 }

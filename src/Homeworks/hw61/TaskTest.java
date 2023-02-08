@@ -19,7 +19,9 @@ class TaskTest {
 
     @Test
     void testPriorityQueue() {
-        PriorityQueue<Task> input = new PriorityQueue<>(new TaskComparator());
+        PriorityQueue<Task> input = new PriorityQueue<>(
+                Task.getPriorityComparator().thenComparing(Task.getNumComparator())
+        );
         input.offer(t1);
         input.offer(t2);
         input.offer(t3);
@@ -36,6 +38,5 @@ class TaskTest {
         List<Task> expList = List.of(t6, t7, t8, t2, t3, t5, t1, t4);
 
         Assertions.assertEquals(expList, inpList);
-
     }
 }
